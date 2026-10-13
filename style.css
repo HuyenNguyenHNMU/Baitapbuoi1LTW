@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #e9ecef;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 750px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.header-title {
+    background-color: #00563f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-title h2 { margin: 0; font-size: 22px; }
+
+form {
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* ĐÃ THU NHỎ CÁC Ô NHẬP VÀ NÚT BẤM */
+input, select, button {
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #00563f;
+    box-shadow: 0 0 5px rgba(0,86,63,0.5);
+}
+
+.input-error {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 5px rgba(220,53,69,0.5) !important;
+}
+
+form input[type="text"] { flex: 1 1 100%; }
+form input[type="date"], form select { flex: 1 1 calc(50% - 5px); }
+
+button {
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+button:hover { filter: brightness(1.1); }
+button:active { transform: scale(0.96); }
+
+.btn-add {
+    flex: 1 1 100%;
+    background-color: #00563f;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.error { color: #dc3545; font-size: 13px; width: 100%; display: none; font-weight: 500; margin-top: -5px; }
+
+.stats-board {
+    display: flex;
+    justify-content: space-around;
+    background: #f8f9fa;
+    margin: 0 20px 20px 20px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    font-size: 14px;
+}
+
+.text-success { color: #198754; }
+.text-warning { color: #d97706; }
+
+.section-title {
+    padding: 0 20px;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #00563f;
+    padding-bottom: 8px;
+    margin-inline: 20px;
+}
+
+.filter-section {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-box input { width: 100%; background-color: #f8f9fa; }
+.filter-controls { display: flex; gap: 10px; }
+.filter-controls select { flex: 1; }
+
+ul { list-style: none; padding: 0 20px 20px 20px; }
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #e9ecef;
+    border-left: 5px solid #00563f;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.task-info { display: flex; flex-direction: column; gap: 4px; }
+.task-name { font-size: 15px; color: #212529; }
+.task-meta { font-size: 12px; color: #6c757d; }
+
+.task-actions { display: flex; gap: 6px; }
+
+/* ĐÃ THU NHỎ NÚT HOÀN THÀNH VÀ XÓA */
+.btn-complete { background-color: #198754; color: white; padding: 6px 10px; font-size: 12px; }
+.btn-delete { background-color: #dc3545; color: white; padding: 6px 10px; font-size: 12px; }
+
+li.completed { border-left-color: #6c757d; background-color: #f8f9fa; opacity: 0.8; }
+li.completed .task-name { text-decoration: line-through; color: #6c757d; }
+
+footer { text-align: center; font-size: 13px; color: #555; padding: 10px; font-weight: bold; }
+
+/* =========================================
+   ÉP BUỘC HIỂN THỊ DỌC TRÊN ĐIỆN THOẠI 375PX 
+   SỬ DỤNG !IMPORTANT ĐỂ ĐÈ MỌI LỖI
+========================================= */
+@media (max-width: 480px) {
+    body { padding: 5px !important; }
+    
+    .container { margin-bottom: 5px !important; }
+    
+    form, .stats-board, .section-title, .filter-section, ul {
+        padding: 0 10px !important;
+        margin-bottom: 10px !important;
+    }
+
+    form input[type="date"], form select { flex: 1 1 100% !important; }
+
+    /* Ép bảng thống kê xếp dọc */
+    .stats-board { 
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        gap: 8px !important; 
+    }
+
+    /* Ép bộ lọc xếp dọc */
+    .filter-controls { 
+        flex-direction: column !important; 
+    }
+    .filter-controls select { 
+        width: 100% !important; 
+        flex: none !important; 
+    }
+
+    /* Ép danh sách công việc xếp dọc */
+    li { 
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        gap: 12px !important; 
+    }
+
+    /* Ép 2 nút xếp ngang nhau nhưng giãn đều 100% */
+    .task-actions { 
+        width: 100% !important; 
+        flex-direction: row !important; 
+        gap: 5px !important;
+    }
+    
+    .task-actions button { 
+        flex: 1 !important; 
+        padding: 8px !important; 
+        font-size: 12px !important; 
+    }
+}

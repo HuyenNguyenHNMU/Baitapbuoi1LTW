@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header mới -->
+        <div class="header-title">
+            <h2>MINI TASK MANAGER</h2>
+        </div>
+        
+        <!-- Form thêm công việc -->
+        <form id="task-form">
+            <input type="text" id="task-name" placeholder="📝 Tên công việc (bắt buộc)...">
+            <input type="date" id="task-date" title="Hạn hoàn thành">
+            <select id="task-priority" title="Mức độ ưu tiên">
+                <option value="Cao">🔴 Ưu tiên: Cao</option>
+                <option value="Trung bình" selected>🟡 Ưu tiên: Trung bình</option>
+                <option value="Thấp">🟢 Ưu tiên: Thấp</option>
+            </select>
+            <button type="submit" class="btn-add">➕ Thêm</button>
+            <p id="error-msg" class="error"></p>
+        </form>
+
+        <!-- Thống kê -->
+        <div class="stats-board">
+            <div class="stat-item">Tổng số: <strong id="total-count">0</strong></div>
+            <div class="stat-item text-success">Đã hoàn thành: <strong id="completed-count">0</strong></div>
+            <div class="stat-item text-warning">Chưa hoàn thành: <strong id="pending-count">0</strong></div>
+        </div>
+
+        <h3 class="section-title">📑 DANH SÁCH CÔNG VIỆC</h3>
+
+        <!-- Tìm kiếm, Lọc và Sắp xếp -->
+        <div class="filter-section">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="🔍 Tìm kiếm tên công việc...">
+            </div>
+            <div class="filter-controls">
+                <select id="status-filter">
+                    <option value="all">📋 Tất cả trạng thái</option>
+                    <option value="pending">⏳ Chưa hoàn thành</option>
+                    <option value="completed">✅ Đã hoàn thành</option>
+                </select>
+                <select id="sort-filter">
+                    <option value="default">↕️ Sắp xếp mặc định</option>
+                    <option value="date-asc">📅 Hạn hoàn thành (Gần nhất)</option>
+                    <option value="date-desc">📅 Hạn hoàn thành (Xa nhất)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Vùng hiển thị danh sách -->
+        <ul id="task-list"></ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Họ tên: Nguyễn Thị Thu Huyền | MSSV: 224001722 | Lớp: Toán Ứng Dụng D2024
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
